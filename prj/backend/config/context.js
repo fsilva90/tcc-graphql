@@ -1,15 +1,17 @@
 const jwt = require('jwt-simple')
 
 module.exports = async ({ req }) => {
-    // Em desenvolvimento
-    // await require('./simularUsuarioLogado')(req)
 
+    //Simular usuario logado
+    // await require('./simularUsuarioLogado')(req)
+    
     const auth = req.headers.authorization
     const token = auth && auth.substring(7)
 
     let usuario = null
     let admin = false
 
+    //Validacao de token
     if(token) {
         try {
             let conteudoToken = jwt.decode(token,
@@ -28,17 +30,18 @@ module.exports = async ({ req }) => {
 
     const err = new Error('Acesso negado!')
 
+    //Validacao de usuario, perfil e filtro
     return {
         usuario,
         admin,
         validarUsuario() {
-            if(!usuario) throw err
+ //           if(!usuario) throw err
         },
         validarAdmin() {
-            if(!admin) throw err
+            //if(!admin) throw err
         },
         validarUsuarioFiltro(filtro) {
-            if(admin) return
+/*            if(admin) return
 
             if(!usuario) throw err
             if(!filtro) throw err
@@ -47,6 +50,8 @@ module.exports = async ({ req }) => {
             if(!id && !email) throw err
             if(id && id !== usuario.id) throw err
             if(email && email !== usuario.email) throw err
+*/
         }
     }
+
 }

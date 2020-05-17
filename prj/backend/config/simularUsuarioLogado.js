@@ -1,3 +1,5 @@
+//Nao utilizado para o projeto
+
 const db = require('./db')
 const { getUsuarioLogado } = require('../resolvers/comum/usuario')
 

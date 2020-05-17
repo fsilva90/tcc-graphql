@@ -1,3 +1,4 @@
+//Criando um servidor com Apollo Server
 require('dotenv').config()
 const { ApolloServer, gql } = require('apollo-server')
 const { importSchema } = require('graphql-import')
